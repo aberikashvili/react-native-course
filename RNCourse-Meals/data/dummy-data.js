@@ -52,9 +52,17 @@ export const MEALS = [
     ['c11'],
     'Georgian Pork Barbecue',
     'pricey',
-    'challenging',
+    'simple',
     'http://cdn.shopify.com/s/files/1/0574/9152/1706/products/batch_shutterstock_1922267825.jpg?v=1643834510',
-    40
+    40,
+    ['Pork tender meat', 'Salt', 'Wine', 'Black Paper'],
+    [
+      'Cut meat in medium size pieces',
+      'Put 6 pieces on skewer',
+      'Salt the meat',
+      'Paper the meat',
+      'Wet with wine periodically during frying'
+    ]
   ),
   new Meal(
     'g4',
@@ -152,6 +160,27 @@ export const MEALS = [
     false
   ),
 
+  new Meal(
+    'b1',
+    ['c3'],
+    'Cheeseburger',
+    'pricey',
+    'simple',
+    'https://www.modernhoney.com/wp-content/uploads/2022/05/Double-Double-Cheeseburger-with-Fries-Recipe-scaled.jpg',
+    45,
+    ['300g Cattle Hack', '1 Tomato', '1 Cucumber', '1 Onion', 'Ketchup', '2 Burger Buns'],
+    [
+      'Form 2 patties',
+      'Fry the patties for c. 4 minutes on each side',
+      'Quickly fry the buns for c. 1 minute on each side',
+      'Bruch buns with ketchup',
+      'Serve burger with tomato, cucumber and onion'
+    ],
+    false,
+    false,
+    false,
+    true
+  ),
   new Meal(
     'm3',
     ['c3'],
@@ -301,6 +330,16 @@ export const MEALS = [
     false
   ),
 
+  new Meal(
+    'a1',
+    ['c8'],
+    'Sushi',
+    'luxurious',
+    'challenging',
+    'https://t3.ftcdn.net/jpg/03/32/16/52/360_F_332165231_B81gcGf8AMRKMB0MjZZnqWMLbaF2JaVL.jpg',
+    45,
+    ['Salmon', 'Rice', 'Nori', 'Soy Souce', 'Cucumber', 'Avocado', 'Cream Cheese']
+  ),
   new Meal(
     'm8',
     ['c8'],

@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text } from 'react-native';
-import CategoriesScreen from './screens/CategoriesScreen';
+import { StyleSheet } from 'react-native';
+import DrawerNavigator from './navigators/DrawerNavigator';
 import MealDetailsScreen from './screens/MealDetailsScreen';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
 
@@ -20,11 +20,12 @@ const App = () => {
             contentStyle: { backgroundColor: '#302d2d' }
           }}>
           <Stack.Screen
-            name="MealsCategories"
+            name="Drawer"
             options={{
-              title: 'All Categories'
+              title: 'All Categories',
+              headerShown: false
             }}
-            component={CategoriesScreen}
+            component={DrawerNavigator}
           />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
           <Stack.Screen name="MealDetails" component={MealDetailsScreen} />

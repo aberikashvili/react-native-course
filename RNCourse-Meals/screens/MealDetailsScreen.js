@@ -1,5 +1,6 @@
 import { useLayoutEffect } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import IconButton from '../components/IconButton';
 import List from '../components/MealDetail/List';
 import Subtitle from '../components/MealDetail/Subtitle';
 import MealDetails from '../components/MealDetails';
@@ -11,9 +12,14 @@ const MealDetailsScreen = ({ navigation, route }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: meal.title
+      title: meal.title,
+      headerRight: () => {
+        return <IconButton icon="star" color="gold" onPress={headerButtonPressHandler} />;
+      }
     });
-  }, [navigation, mealId]);
+  }, [navigation, mealId, headerButtonPressHandler]);
+
+  const headerButtonPressHandler = () => console.log('header button pressed');
 
   return (
     <ScrollView

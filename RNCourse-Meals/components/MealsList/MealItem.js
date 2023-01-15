@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { crossPlatformShadow, iOsRipple } from '../constants/style-helpers';
-import MealDetails from './MealDetails';
+import { crossPlatformShadow, iOsRipple } from '../../constants/style-helpers';
+import MealDetails from '../MealDetails';
 
 const MealItem = ({ id, title, imageUrl, duration, complexity, affordability }) => {
   const navigation = useNavigation();

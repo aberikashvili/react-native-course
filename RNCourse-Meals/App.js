@@ -2,10 +2,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
 import DrawerNavigator from './navigators/DrawerNavigator';
 import MealDetailsScreen from './screens/MealDetailsScreen';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
-import FavoritesContextProvider from './store/context/favorites-context';
+import store from './store/redux/store';
+// import FavoritesContextProvider from './store/context/favorites-context';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +15,8 @@ const App = () => {
   return (
     <>
       <StatusBar style="light" />
-      <FavoritesContextProvider>
+      {/* <FavoritesContextProvider> */}
+      <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator
             screenOptions={{
@@ -33,7 +36,8 @@ const App = () => {
             <Stack.Screen name="MealDetails" component={MealDetailsScreen} />
           </Stack.Navigator>
         </NavigationContainer>
-      </FavoritesContextProvider>
+      </Provider>
+      {/* </FavoritesContextProvider> */}
     </>
   );
 };

@@ -3,7 +3,6 @@ import axios from 'axios';
 const BACKEND_URL = 'https://rncourse-expenses-default-rtdb.firebaseio.com';
 
 export const storeExpense = async (expenseData) => {
-  console.log('ssdsd');
   const response = await axios.post(BACKEND_URL + '/expenses.json', expenseData);
   const id = response.data.name;
 

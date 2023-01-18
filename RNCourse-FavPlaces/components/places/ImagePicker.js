@@ -1,28 +1,35 @@
 import { Alert, Image, StyleSheet, Text, View } from 'react-native';
 import { launchCameraAsync, useCameraPermissions, PermissionStatus } from 'expo-image-picker';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Colors } from '../../constsnts/colors';
 import OutlinedButton from '../ui/OutlinedButton';
 
-const ImagePicker = () => {
+const ImagePicker = ({ onTakeImage }) => {
   const [camerPermissionInformation, requestPermission] = useCameraPermissions();
   const [pickedImage, setPickedImage] = useState();
 
+  useEffect(() => {
+    onTakeImage(pickedImage);
+  }, [pickedImage, onTakeImage]);
+
   const verifyPermissions = async () => {
-    if (camerPermissionInformation.status === PermissionStatus.UNDETERMINED) {
+    if (
+      camerPermissionInformation.status === PermissionStatus.UNDETERMINED ||
+      camerPermissionInformation.status === PermissionStatus.DENIED
+    ) {
       const permissionResponse = await requestPermission();
 
       return permissionResponse.granted;
     }
 
-    if (camerPermissionInformation.status === PermissionStatus.DENIED) {
-      Alert.alert(
-        'Insufficient Permissions',
-        'You need to grant camera permissions to use this app.'
-      );
+    // if (camerPermissionInformation.status === PermissionStatus.DENIED) {
+    //   Alert.alert(
+    //     'Insufficient Permissions',
+    //     'You need to grant camera permissions to use this app.'
+    //   );
 
-      return false;
-    }
+    //   return false;
+    // }
 
     return true;
   };
@@ -39,7 +46,7 @@ const ImagePicker = () => {
       aspect: [4, 5],
       quality: 0.5
     });
-    console.log('IMAGE', image);
+
     setPickedImage(image.assets[0].uri);
   };
 
@@ -67,7 +74,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.primary100,
-    borderRadius: 4
+    borderRadius: 4,
+    overflow: 'hidden'
   },
   image: {
     width: '100%',

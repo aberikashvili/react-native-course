@@ -1,15 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AppLoading from 'expo-app-loading';
+
 import AllPlacesScreen from './screens/AllPlacesScreen';
 import AddPlaceScreen from './screens/AddPlaceScreen';
 import IconButton from './components/ui/IconButton';
 import { Colors } from './constsnts/colors';
 import MapScreen from './screens/MapScreen';
+import { useEffect, useState } from 'react';
+import { init } from './util/database';
+import { LogBox } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  LogBox.ignoreLogs(['expo-app-loading is deprecated in favor of expo-splash-screen']);
+
+  const [dbInitialized, setDbInitialized] = useState(false);
+
+  useEffect(() => {
+    init()
+      .then(() => setDbInitialized(true))
+      .catch((err) => console.log(err));
+  }, []);
+
+  if (!dbInitialized) {
+    return <AppLoading />;
+  }
+
   return (
     <>
       <StatusBar style="auto" />

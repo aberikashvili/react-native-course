@@ -20,6 +20,7 @@ const ImagePicker = () => {
         'Insufficient Permissions',
         'You need to grant camera permissions to use this app.'
       );
+
       return false;
     }
 

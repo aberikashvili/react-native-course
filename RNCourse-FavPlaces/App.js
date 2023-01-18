@@ -11,6 +11,7 @@ import MapScreen from './screens/MapScreen';
 import { useEffect, useState } from 'react';
 import { init } from './util/database';
 import { LogBox } from 'react-native';
+import PlaceDetailsScreen from './screens/PlaceDetailsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -60,6 +61,11 @@ const App = () => {
             options={{ title: 'Add a new Place' }}
           />
           <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map' }} />
+          <Stack.Screen
+            name="PlaceDetails"
+            component={PlaceDetailsScreen}
+            options={{ title: 'Loading Place...' }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>

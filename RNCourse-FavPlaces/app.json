@@ -14,7 +14,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -22,7 +24,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.aberikashvili.RNCourseFavPlaces"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -34,6 +40,11 @@
           "cameraPermission": "The app needs access to your camera in order to take photos of your favorite places"
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "44933d7e-096a-4a86-bc9a-7e49a900a6cc"
+      }
+    }
   }
 }
